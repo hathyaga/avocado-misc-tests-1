@@ -87,11 +87,9 @@ class NetDataTest(Test):
         '''
         check with different maximum transfer unit values
         '''
-        msg = "ip addr show  | grep %s | grep -oE '[^ ]+$'"\
-               % self.peer
+        msg = "ip addr show  | grep %s | grep -oE '[^ ]+$'" % self.peer
         cmd = "ssh %s %s" % (self.peer, msg)
-        self.peer_interface = process.system_output(cmd, shell=True
-                                                    ).strip()
+        self.peer_interface = process.system_output(cmd, shell=True).strip()
         for mtu in self.mtu_list:
             self.log.info("trying with mtu %s" % (mtu))
             # ping the peer machine with different maximum transfers unit sizes
