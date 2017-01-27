@@ -46,10 +46,6 @@ class NetDataTest(Test):
             pkgs.append('openssh-client')
         else:
             pkgs.append('openssh-clients')
-        if detected_distro.name == "Ubuntu":
-            pkgs.append('iputils-ping')
-        else:
-            pkgs.append('iputils')
         for pkg in pkgs:
             if not smm.check_installed(pkg) and not smm.install(pkg):
                 self.skip("%s package is need to test" % pkg)
