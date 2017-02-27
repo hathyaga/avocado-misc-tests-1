@@ -57,7 +57,6 @@ class Lvsetup(Test):
             pkgs = 'xfsprogs'
         if self.fs_name.lower() == 'btrfs':
             pkgs = 'btrfs-progs'
-        for pkg in pkgs:
             if not smm.check_installed(pkgs) and not smm.install(pkgs):
                 self.skip("%s package is need to test" % pkgs)
         lv_snapshot_name = self.params.get(
